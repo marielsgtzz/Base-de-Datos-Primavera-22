@@ -1,5 +1,5 @@
 --Qué contactos de proveedores tienen la posición de sales representative?
-select 
+select s.contact_name from suppliers s where s.contact_title = 'Sales Representative';
 
 --Qué contactos de proveedores no son marketing managers?
 
