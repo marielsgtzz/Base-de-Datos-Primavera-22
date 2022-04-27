@@ -5,6 +5,7 @@ select s.contact_name from suppliers s where s.contact_title = 'Sales Representa
 select s.contact_name from suppliers s where not s.contact_title = 'Marketing Manager';
 
 --Cuales órdenes no vienen de clientes en Estados Unidos?
+select o.order_id from orders o where not o.ship_country = 'USA';
 
 --Qué productos de los que transportamos son quesos?
 
