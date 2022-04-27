@@ -32,6 +32,8 @@ select SUM(p.units_in_stock * p.unit_price) as total_money_inventory from produc
 select c.country, count(c.contact_name) amount_clients from customers c group by country ;
 
 --Obtener un reporte de edades de los empleados para checar su elegibilidad para seguro de gastos médicos menores.
+select e.employee_id , age (current_date, e.birth_date) edades from employees e;
+
 --Cuál es la orden más reciente por cliente?
 --De nuestros clientes, qué función desempeñan y cuántos son?
 --Cuántos productos tenemos de cada categoría?
