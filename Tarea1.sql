@@ -48,6 +48,8 @@ select c.category_name, count(p.category_id) from products p join categories c o
 select reorder_level,  product_name producto, product_id id_producto, units_in_stock from products p order by reorder_level asc ;
 
 --A donde va nuestro envío más voluminoso?
+select o.ship_country, od.quantity  from orders o join order_details od on (o.order_id  = od.order_id) order by od.quantity desc limit 1;
+
 --Cómo creamos una columna en customers que nos diga si un cliente es bueno, regular, o malo?
 --Qué colaboradores chambearon durante las fiestas de navidad?
 --Qué productos mandamos en navidad?
