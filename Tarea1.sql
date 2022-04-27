@@ -29,7 +29,7 @@ select (e.first_name, e.last_name) as Employee_data from employees e;
 select SUM(p.units_in_stock * p.unit_price) as total_money_inventory from products p  ;
 
 --Cuantos clientes tenemos de cada país?
-select c.country, count(c.contact_name) from customers c group by country ;
+select c.country, count(c.contact_name) amount_clients from customers c group by country ;
 
 --Obtener un reporte de edades de los empleados para checar su elegibilidad para seguro de gastos médicos menores.
 --Cuál es la orden más reciente por cliente?
