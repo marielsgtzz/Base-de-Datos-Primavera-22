@@ -59,6 +59,13 @@ case
 end as tipo_cliente from orders o, order_details od group by o.customer_id ;
 
 --Qué colaboradores chambearon durante las fiestas de navidad?
---Qué productos mandamos en navidad?
---Qué país recibe el mayor volumen de producto?
+select e.employee_id, e.first_name, e.last_name from orders o join employees e on (o.employee_id = e.employee_id) where (extract(month from o.shipped_date) = 12 
+and extract(day from o.shipped_date) = 25) or (extract(month from o.order_date) = 12 and extract(day from o.order_date) = 25) group by e.employee_id ;
 
+--Qué productos mandamos en navidad?
+select p.product_id ,p.product_name from products p join order_details od on (p.product_id = od.product_id) join orders o on (od.order_id = o.order_id)
+where extract(month from o.shipped_date) = 12 and extract(day from o.shipped_date) = 25;
+
+--Qué país recibe el mayor volumen de producto?
+select o.ship_country pais, sum(od.quantity) from orders o join order_details od on o.order_id = od.order_id group by o.ship_country order by sum(od.quantity) 
+desc limit 1;
