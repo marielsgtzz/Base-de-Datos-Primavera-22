@@ -2,6 +2,7 @@
 select s.contact_name from suppliers s where s.contact_title = 'Sales Representative';
 
 --Qué contactos de proveedores no son marketing managers?
+select s.contact_name from suppliers s where not s.contact_title = 'Marketing Manager';
 
 --Cuales órdenes no vienen de clientes en Estados Unidos?
 
