@@ -51,6 +51,13 @@ select reorder_level,  product_name producto, product_id id_producto, units_in_s
 select o.ship_country, od.quantity  from orders o join order_details od on (o.order_id  = od.order_id) order by od.quantity desc limit 1;
 
 --Cómo creamos una columna en customers que nos diga si un cliente es bueno, regular, o malo?
+select o.customer_id, sum(od.quantity), 
+case 
+	when sum(od.quantity) > 650000 then 'bueno'
+	when sum(od.quantity) < 300000 then 'malo'
+	else 'regular'
+end as tipo_cliente from orders o, order_details od group by o.customer_id ;
+
 --Qué colaboradores chambearon durante las fiestas de navidad?
 --Qué productos mandamos en navidad?
 --Qué país recibe el mayor volumen de producto?
