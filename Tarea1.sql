@@ -20,6 +20,7 @@ select o.order_id from orders o where o.ship_country = 'Brazil' or o.ship_countr
 select o.order_id from orders o where not (o.ship_country = 'Brazil' or o.ship_country = 'Mexico' or o.ship_country = 'Venezuela' or o.ship_country = 'Argentina');
 
 --Necesitamos los nombres completos de los empleados, nombres y apellidos unidos en un mismo registro
+select (e.first_name, e.last_name) as Employee_data from employees e;
 
 --Cuánta lana tenemos en inventario?
 select SUM(p.units_in_stock * p.unit_price) as total_money_inventory from products p  ;
