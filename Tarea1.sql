@@ -1,0 +1,20 @@
+--Qué contactos de proveedores tienen la posición de sales representative?
+select 
+
+--Qué contactos de proveedores no son marketing managers?
+
+--Cuales órdenes no vienen de clientes en Estados Unidos?
+
+--Qué productos de los que transportamos son quesos?
+
+--Qué ordenes van a Bélgica o Francia?
+
+--Qué órdenes van a LATAM?
+
+--Qué órdenes no van a LATAM?
+
+--Necesitamos los nombres completos de los empleados, nombres y apellidos unidos en un mismo registro
+
+--Cuánta lana tenemos en inventario?
+
+--Cuantos clientes tenemos de cada país?
