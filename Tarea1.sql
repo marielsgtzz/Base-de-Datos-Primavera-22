@@ -38,6 +38,8 @@ select e.employee_id , age (current_date, e.birth_date) edades from employees e;
 select max(o.order_id), c.contact_name from orders o join customers c on (o.customer_id = c.customer_id) group by c.contact_name;
 
 --De nuestros clientes, qué función desempeñan y cuántos son?
+select c.contact_title, count(c.contact_title) from customers c group by c.contact_title ;
+
 --Cuántos productos tenemos de cada categoría?
 --Cómo podemos generar el reporte de reorder?
 --A donde va nuestro envío más voluminoso?
@@ -45,3 +47,4 @@ select max(o.order_id), c.contact_name from orders o join customers c on (o.cust
 --Qué colaboradores chambearon durante las fiestas de navidad?
 --Qué productos mandamos en navidad?
 --Qué país recibe el mayor volumen de producto?
+
