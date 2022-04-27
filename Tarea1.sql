@@ -45,6 +45,8 @@ select c.contact_title, count(c.contact_title) from customers c group by c.conta
 select c.category_name, count(p.category_id) from products p join categories c on (p.category_id = c.category_id) group by p.category_id,c.category_name;
 
 --Cómo podemos generar el reporte de reorder?
+select reorder_level,  product_name producto, product_id id_producto, units_in_stock from products p order by reorder_level asc ;
+
 --A donde va nuestro envío más voluminoso?
 --Cómo creamos una columna en customers que nos diga si un cliente es bueno, regular, o malo?
 --Qué colaboradores chambearon durante las fiestas de navidad?
