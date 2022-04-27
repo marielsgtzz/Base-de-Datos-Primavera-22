@@ -11,7 +11,7 @@ select o.order_id from orders o where not o.ship_country = 'USA';
 select p.product_name from products p where p.category_id = 4;
 
 --Qué ordenes van a Bélgica o Francia?
-
+select o.order_id from orders o where o.ship_country = 'Belgium' or o.ship_country = 'France';
 --Qué órdenes van a LATAM?
 
 --Qué órdenes no van a LATAM?
