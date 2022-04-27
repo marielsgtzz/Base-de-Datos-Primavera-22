@@ -12,10 +12,12 @@ select p.product_name from products p where p.category_id = 4;
 
 --Qué ordenes van a Bélgica o Francia?
 select o.order_id from orders o where o.ship_country = 'Belgium' or o.ship_country = 'France';
+
 --Qué órdenes van a LATAM?
 select o.order_id from orders o where o.ship_country = 'Brazil' or o.ship_country = 'Mexico' or o.ship_country = 'Venezuela' or o.ship_country = 'Argentina';
 
 --Qué órdenes no van a LATAM?
+select o.order_id from orders o where not (o.ship_country = 'Brazil' or o.ship_country = 'Mexico' or o.ship_country = 'Venezuela' or o.ship_country = 'Argentina');
 
 --Necesitamos los nombres completos de los empleados, nombres y apellidos unidos en un mismo registro
 
