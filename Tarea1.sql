@@ -1,3 +1,5 @@
+--TAREA 1 usando la base de datos de Northwind que es una BD ficticia de una empresa importadora y exportadora de alimentos. 
+
 --Qué contactos de proveedores tienen la posición de sales representative?
 select s.contact_name from suppliers s where s.contact_title = 'Sales Representative';
 
