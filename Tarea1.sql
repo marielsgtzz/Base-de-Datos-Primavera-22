@@ -8,7 +8,10 @@ select s.contact_name from suppliers s where not s.contact_title = 'Marketing Ma
 select o.order_id from orders o where not o.ship_country = 'USA';
 
 --Qué productos de los que transportamos son quesos?
-select p.product_name from products p where p.category_id = 4;
+--Solo los que se están transportando
+--select p.product_id, p.product_name from products p where p.category_id = 4;
+select distinct p.product_id, p.product_name from categories c join products p using (category_id) join order_details od using (product_id) join orders o using 
+(order_id) where shipped_date is not null and c.description = 'Cheeses';
 
 --Qué ordenes van a Bélgica o Francia?
 select o.order_id from orders o where o.ship_country = 'Belgium' or o.ship_country = 'France';
@@ -26,6 +29,7 @@ select (e.first_name, e.last_name) as Employee_data from employees e;
 select SUM(p.units_in_stock * p.unit_price) as total_money_inventory from products p  ;
 
 --Cuantos clientes tenemos de cada país?
+select c.country, count(c.contact_name) from customers c group by country ;
 
 --Obtener un reporte de edades de los empleados para checar su elegibilidad para seguro de gastos médicos menores.
 --Cuál es la orden más reciente por cliente?
