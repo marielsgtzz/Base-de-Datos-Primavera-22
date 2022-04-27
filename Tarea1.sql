@@ -8,6 +8,7 @@ select s.contact_name from suppliers s where not s.contact_title = 'Marketing Ma
 select o.order_id from orders o where not o.ship_country = 'USA';
 
 --Qué productos de los que transportamos son quesos?
+select p.product_name from products p where p.category_id = 4;
 
 --Qué ordenes van a Bélgica o Francia?
 
