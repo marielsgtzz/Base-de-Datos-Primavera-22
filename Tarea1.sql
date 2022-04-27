@@ -35,6 +35,8 @@ select c.country, count(c.contact_name) amount_clients from customers c group by
 select e.employee_id , age (current_date, e.birth_date) edades from employees e;
 
 --Cuál es la orden más reciente por cliente?
+select max(o.order_id), c.contact_name from orders o join customers c on (o.customer_id = c.customer_id) group by c.contact_name;
+
 --De nuestros clientes, qué función desempeñan y cuántos son?
 --Cuántos productos tenemos de cada categoría?
 --Cómo podemos generar el reporte de reorder?
