@@ -41,6 +41,9 @@ select max(o.order_id), c.contact_name from orders o join customers c on (o.cust
 select c.contact_title, count(c.contact_title) from customers c group by c.contact_title ;
 
 --Cuántos productos tenemos de cada categoría?
+--select p.category_id, count(p.category_id) from products p group by p.category_id;
+select c.category_name, count(p.category_id) from products p join categories c on (p.category_id = c.category_id) group by p.category_id,c.category_name;
+
 --Cómo podemos generar el reporte de reorder?
 --A donde va nuestro envío más voluminoso?
 --Cómo creamos una columna en customers que nos diga si un cliente es bueno, regular, o malo?
