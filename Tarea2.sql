@@ -8,8 +8,6 @@ create sequence avengers_email_id_avenger_seq start 1 increment 1;
 alter table avengers_email alter column id_avenger set default nextval('avengers_email_id_avenger_seq') 
 
 
-
-
 insert into avengers_email (nombre, email) values 
 ('Wanda Maximoff','wanda.maximoff@avengers.org'),
 ('Pietro Maximoff',	'pietro@mail.sokovia.ru'),
@@ -34,7 +32,7 @@ insert into avengers_email (nombre, email) values
 ('Mariel','m%@avengers.org');
 --Construyan un query que regrese emails inválidos.
 --		Tomo como email válido que haya contenido antes y después de la @, y que después haya un punto y algo más. ej. (h@bla.co)
-select a.email from avengers_email a where (a.email like '@%' or a.email like '%.' or a.email not like '%@%' or a.email not like '%@%.%' or 
+select a.email as Email_invalido from avengers_email a where (a.email like '@%' or a.email like '%.' or a.email not like '%@%' or a.email not like '%@%.%' or 
 (a.email like '%^@%' or a.email  like '%!@%' or a.email  like '%>@%' or a.email  like '%<@%' or a.email  like '%?@%' or a.email  like '%"@%' 
 or a.email  like '%:@%' or a.email  like '%;@%' or a.email  like '%,@%' or a.email  like '%$@%'));
 	--select a.email from avengers_email a where a.email not like '%@%'; --no cumple con la condición de contenido antes y después de la @
@@ -43,3 +41,29 @@ or a.email  like '%:@%' or a.email  like '%;@%' or a.email  like '%,@%' or a.ema
 	--Caracteres inválidos
 		--select a.email from avengers_email a where a.email  like '%^@%';
 		--select a.email from avengers_email a where a.email  like '%!@%';
+
+
+--EXTRA
+create table superheroes_anios_servicio(
+	id_avenger numeric(4,0) constraint pk_superheroes_anios_servicio primary key,
+	nombre_super varchar(50) not null,
+	equipo varchar(50),
+	anios_servicio numeric(4,0) not null
+);
+
+create sequence superheroes_anios_servicio_id_avenger_seq start 1 increment 1;
+alter table superheroes_anios_servicio alter column id_avenger set default nextval('superheroes_anios_servicio_id_avenger_seq') 
+
+insert into superheroes_anios_servicio (nombre_super, equipo, anios_servicio) values 
+('Tony Stark',	'Avengers',	10),
+('Wanda Maximoff',	'Avengers',	5),
+('Wanda Maximoff',	'X Men',	3),
+('Erik Lensherr',	'Acolytes',	10),
+('Erik Lensherr',	'Brotherhood of Evil Mutants', 12),
+('Natasja Romanov',	'KGB', 8),
+('Natasja Romanov',	'Avengers',	10);
+
+--Regresar nombre del superhéroe, lista separada por comas de los grupos o equipos en donde sirvió, total de años de servicio en todos los grupos
+select sas.nombre_super,sas.equipo, sum(sas.anios_servicio) from superheroes_anios_servicio sas group by sas.nombre_super, sas.anios_servicio, sas.equipo ;
+
+
