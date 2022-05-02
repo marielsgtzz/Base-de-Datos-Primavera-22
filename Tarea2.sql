@@ -67,3 +67,6 @@ insert into superheroes_anios_servicio (nombre_super, equipo, anios_servicio) va
 select sas.nombre_super,sas.equipo, sum(sas.anios_servicio) from superheroes_anios_servicio sas group by sas.nombre_super, sas.anios_servicio, sas.equipo ;
 
 
+--select sas.nombre_super, string_agg(sas.equipo, ',') from superheroes_anios_servicio sas group by sas.nombre_super; --En que equipos estuvieron
+--select sas.nombre_super, sum(sas.anios_servicio) from superheroes_anios_servicio sas group by sas.nombre_super; --Cuantos años sirvieron en total
+
