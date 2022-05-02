@@ -64,9 +64,9 @@ insert into superheroes_anios_servicio (nombre_super, equipo, anios_servicio) va
 ('Natasja Romanov',	'Avengers',	10);
 
 --Regresar nombre del superhéroe, lista separada por comas de los grupos o equipos en donde sirvió, total de años de servicio en todos los grupos
-select sas.nombre_super,sas.equipo, sum(sas.anios_servicio) from superheroes_anios_servicio sas group by sas.nombre_super, sas.anios_servicio, sas.equipo ;
+	--select sas.nombre_super, string_agg(sas.equipo, ',') from superheroes_anios_servicio sas group by sas.nombre_super; --En que equipos estuvieron
+	--select sas.nombre_super, sum(sas.anios_servicio) from superheroes_anios_servicio sas group by sas.nombre_super; --Cuantos años sirvieron en total
+select sas.nombre_super, string_agg(sas.equipo, ',') equipos, sum(sas.anios_servicio) total_anios_servidos from superheroes_anios_servicio sas group by sas.nombre_super;
 
 
---select sas.nombre_super, string_agg(sas.equipo, ',') from superheroes_anios_servicio sas group by sas.nombre_super; --En que equipos estuvieron
---select sas.nombre_super, sum(sas.anios_servicio) from superheroes_anios_servicio sas group by sas.nombre_super; --Cuantos años sirvieron en total
 
