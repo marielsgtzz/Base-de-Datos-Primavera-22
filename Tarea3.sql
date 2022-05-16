@@ -25,12 +25,19 @@ where f.rating = 'NC-17'
 group by 2 order by 1 desc limit 1;
 
 --3. Qué películas son las más rentadas en todas nuestras stores?
+--Cuantas veces ha sido rentada cada película en total (independientemente de en qué tienda se rentó)
 select count(i.film_id) as veces_rentadas, f.title as pelicula from rental r 
 	join inventory i using (inventory_id)
 	join film f using (film_id)
 group by 2 
 order by 1 desc;
 
+--Las peliculas más rentadas por tienda
+select distinct on (i.store_id) i.store_id as numero_tienda, f.title as pelicula, count(f.film_id) as veces_rentadas from rental r
+	join inventory i using (inventory_id)
+	join film f using (film_id)
+group by 1,2
+order by 1,3 desc;
 
 --4. Cuál es nuestro revenue por store?
 
