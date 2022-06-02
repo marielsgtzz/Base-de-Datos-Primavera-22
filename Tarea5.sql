@@ -55,7 +55,7 @@ select 50000/500 as ejemplares_por_cilindro;
 	--Van a ser cuatro niveles, porque a lo mucho pueden ser 100 peliculas por cilindro y uno de los supuestos es que se tendrán por nivel 25
 	select (8*4)+4 as altura_cilindro;--+4 porque se dijo que por nivel va a haber un espacio de 1cm --!!!!
 
---Información de los cilindros 
+--Información de los cilindros (Correr esta query)
 	select i.store_id as Tienda, ceiling((500*count(i.inventory_id))/50000) as Cant_Cilindros, (21*25/(3.14*2))+30 as radio_cilindro, (8*4)+4 as altura_cilindro
 	from inventory i
 	group by i.store_id;
